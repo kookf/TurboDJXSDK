@@ -9,12 +9,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ShortVideoRewardsViewDelegate <NSObject>
+
+@required
+- (void)getRewards;
+
+@end
+
 @interface TurboDJXConfig : NSObject
 
-//自定义信息流广告位ID 必设置项
-@property (nonatomic, strong) NSString *nativePlacementID;
-//自定义激励广告位ID 必设置项
-@property (nonatomic, strong) NSString *rewardPlacementID;
+//自定义短故事信息流广告位ID  必设置项
+@property (nonatomic, strong) NSString *storyNativePlacementID;
+//自定义短故事激励广告位ID    必设置项
+@property (nonatomic, strong) NSString *storyRewardPlacementID;
+//自定义短剧激励广告位ID     必设置项
+@property (nonatomic, strong) NSString *videoRewardPlacementID;
 
 
 //app是否有备案号 默认无
@@ -43,6 +52,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 //短视频是否隐藏关注按钮 默认 false
 @property (nonatomic, assign) bool hideVideoFollow;
+//短视频倒计时奖励视图delegate  不设置代表不显示倒计时视图
+@property (nonatomic, assign) id<ShortVideoRewardsViewDelegate> rewardDelegate;
+//短视频倒计时奖励视图位置(倒计时控件宽高固定为60)
+@property (nonatomic, assign) CGPoint rewardOrigin;
+
 
 + (instancetype)sharedInstance;
 
