@@ -9,6 +9,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ShortPlayRewardsSuccessDelegate <NSObject>
+
+@optional
+- (void)rewardsSuccess;
+
+@end
+
+
 @protocol ShortVideoRewardsViewDelegate <NSObject>
 
 @required
@@ -42,7 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) bool hideDJXFavorButton;
 //短剧是否隐藏点赞按钮 默认 false
 @property (nonatomic, assign) bool hideDJXLikeButton;
-
+//短剧激励视频奖励成功回调  不需要这个回调的可以不用配置此项
+@property (nonatomic, assign) id<ShortPlayRewardsSuccessDelegate> rewardSuccessDelegate;
 
 //短故事信息流广告每多少页出现一次（2-4之间, 默认3）
 @property (nonatomic, assign) int NOV_INSERT_INTERVAL;
