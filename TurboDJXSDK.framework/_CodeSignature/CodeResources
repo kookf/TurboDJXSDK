@@ -1531,7 +1531,7 @@
 		</data>
 		<key>Headers/TurboDJXConfig.h</key>
 		<data>
-		mEeYhq+FA6EXI4U4CCRBJQGd5xM=
+		21crKPNf6g78iien6n2y20n7Rio=
 		</data>
 		<key>Headers/TurboDJXSDK.h</key>
 		<data>
@@ -1539,7 +1539,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		15SVqWY3C1X541B8csPxVAzaaXg=
+		tDXvhnJy7VYaeKH/MMF4n2q9Ykc=
 		</data>
 		<key>LCDSDK.bundle/LCD_All_ShortPlay@2x.png</key>
 		<data>
@@ -2839,7 +2839,7 @@
 		</data>
 		<key>RangersAPMPrivacyInfo.bundle/Info.plist</key>
 		<data>
-		nzpmO4OgSynLjCUulKSw8I2wUjk=
+		jeQNIPHSY1DF1zBfqCtSwZUm5JE=
 		</data>
 		<key>RangersAPMPrivacyInfo.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -2847,7 +2847,7 @@
 		</data>
 		<key>RangersAppLog.bundle/Info.plist</key>
 		<data>
-		hKf+3Z8HU5zf9vVXayGvpp1frrA=
+		tHLYgph/mYyeC+j9adgB13a/98Q=
 		</data>
 		<key>RangersAppLog.bundle/h5bridge-wkwebview.js</key>
 		<data>
@@ -7011,11 +7011,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mEeYhq+FA6EXI4U4CCRBJQGd5xM=
+			21crKPNf6g78iien6n2y20n7Rio=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ie0F25qWDnUd99rjHcfe5TTl1W/mktEPkJIBNCP/9t8=
+			WX7sYBYj7JLUw+PreyH0RRj/MPLBH002GKTncgruwW0=
 			</data>
 		</dict>
 		<key>Headers/TurboDJXSDK.h</key>
@@ -10597,11 +10597,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nzpmO4OgSynLjCUulKSw8I2wUjk=
+			jeQNIPHSY1DF1zBfqCtSwZUm5JE=
 			</data>
 			<key>hash2</key>
 			<data>
-			fVwC/uSE9GXc2NFAg/+cn0TbZ7roeVji5VdcdMFStL4=
+			sdrMNnvqWPLCAOBx+nkc3S3HfRuQ0+hq/aYdPQaixks=
 			</data>
 		</dict>
 		<key>RangersAPMPrivacyInfo.bundle/PrivacyInfo.xcprivacy</key>
@@ -10619,11 +10619,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hKf+3Z8HU5zf9vVXayGvpp1frrA=
+			tHLYgph/mYyeC+j9adgB13a/98Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			kofHa6gTCMvrr8Vo7c/AQtMGNFEwjuiIpkBs5reo/Mw=
+			BO0fFkDWOAneHvpgQIpfDdx80dQjmZtzV/kgxQyE0nc=
 			</data>
 		</dict>
 		<key>RangersAppLog.bundle/h5bridge-wkwebview.js</key>

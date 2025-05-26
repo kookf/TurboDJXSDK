@@ -9,6 +9,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ShortStoryRewardsSuccessDelegate <NSObject>
+
+@optional
+- (void)rewardsSuccess;
+
+@end
+
 @protocol ShortPlayRewardsSuccessDelegate <NSObject>
 
 @optional
@@ -34,6 +41,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *videoRewardPlacementID;
 
 
+//激励广告服务端回调设置用户id
+@property (nonatomic, strong) NSString *userId;
+//激励广告服务端回调设置用户数据
+@property (nonatomic, strong) NSString *userData;
+
+
 //app是否有备案号 默认无
 @property (nonatomic, assign) bool icp;
 //是否打开青少年模式 默认不打开
@@ -57,7 +70,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int NOV_INSERT_INTERVAL;
 //短故事信息流广告插入在第几行下面 （0-5之间, 默认3）
 @property (nonatomic, assign) int NOV_START_LINE_NUMBER;
-
+//短剧激励视频奖励成功回调  不需要这个回调的可以不用配置此项
+@property (nonatomic, assign) id<ShortStoryRewardsSuccessDelegate> storyRewardSuccessDelegate;
 
 //短视频是否隐藏关注按钮 默认 false
 @property (nonatomic, assign) bool hideVideoFollow;
