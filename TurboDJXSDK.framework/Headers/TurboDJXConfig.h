@@ -12,14 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol ShortStoryRewardsSuccessDelegate <NSObject>
 
 @optional
-- (void)rewardsSuccess;
+- (void)storyRewardsSuccess;
 
 @end
 
 @protocol ShortPlayRewardsSuccessDelegate <NSObject>
 
 @optional
-- (void)rewardsSuccess;
+- (void)playRewardsSuccess;
 
 @end
 
