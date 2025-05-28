@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int NOV_INSERT_INTERVAL;
 //短故事信息流广告插入在第几行下面 （0-5之间, 默认3）
 @property (nonatomic, assign) int NOV_START_LINE_NUMBER;
-//短剧激励视频奖励成功回调  不需要这个回调的可以不用配置此项
+//短故事激励视频奖励成功回调  不需要这个回调的可以不用配置此项
 @property (nonatomic, assign) id<ShortStoryRewardsSuccessDelegate> storyRewardSuccessDelegate;
 
 //短视频是否隐藏关注按钮 默认 false
