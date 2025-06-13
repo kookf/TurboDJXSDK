@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TurboDJXSDK : NSObject
 
-typedef void (^completionHandler)(NSArray<DJXPlayletInfoModel *> *list);
+typedef void (^playletCompletionHandler)(NSArray<DJXPlayletInfoModel *> * _Nullable playletList, NSError * _Nullable error);
+
 
 + (instancetype)sharedInstance;
 
@@ -36,12 +37,28 @@ typedef void (^completionHandler)(NSArray<DJXPlayletInfoModel *> *list);
 //短视频控制器
 - (UIViewController *)configVideoVC;
 
+//短视频----仅推荐
+- (UIViewController *)configRecommendVideoVC;
+
+//短视频---仅关注
+- (UIViewController *)configFollowVideoVC;
+
 /// 获取短剧的收藏列表
 /// - Parameters:
 ///   - page: 第几页
 ///   - number: 一页多少个
-///   - completeHandler: 结果回调
-- (void)requestCollectionList:(NSInteger)pageIndex pageSize:(NSInteger)pageSize completion:(completionHandler)completion;
+///   - playletCompletionHandler: 结果回调
+- (void)requestPlayletCollectionListWithPage:(NSInteger)pageIndex pageSize:(NSInteger)pageSize completion:(playletCompletionHandler)completion;
+
+/// 获取短剧的播放记录列表
+/// - Parameters:
+///   - page: 第几页
+///   - number: 一页多少个
+///   - playletCompletionHandler: 结果回调
+- (void)requestPlayletHistoryListWithPage:(NSInteger)pageIndex pageSize:(NSInteger)pageSize completion:(playletCompletionHandler)completion;
+
+//根据短剧model进入短剧播放页
+- (UIViewController *)enterPlayerWithModel:(DJXPlayletInfoModel *)model;
 
 @end
 
