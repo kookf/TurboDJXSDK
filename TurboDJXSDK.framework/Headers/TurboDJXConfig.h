@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <PangrowthDJX/PangrowthDJX.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,18 +17,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@protocol ShortPlayRewardsSuccessDelegate <NSObject>
+@protocol ShortPlayDelegate <NSObject>
 
 @optional
-- (void)playRewardsSuccess;
+- (void)playletRewardsSuccess;
+- (void)playletStopWithModel:(DJXPlayletInfoModel *)model;
+- (void)playletPlayWithModel:(DJXPlayletInfoModel *)model;
+- (void)playletClose;
 
 @end
 
 
-@protocol ShortVideoRewardsViewDelegate <NSObject>
+@protocol ShortVideoDelegate <NSObject>
 
-@required
-- (void)getRewards;
+@optional
+- (void)shortVideGetRewards;
+- (void)shortVideStopWithVideoId:(NSString *)videoId;
+- (void)shortVidePlayWithVideoId:(NSString *)videoId;
+- (void)shortVideClose;
 
 @end
 
@@ -61,13 +68,13 @@ NS_ASSUME_NONNULL_BEGIN
 //短剧是否隐藏点赞按钮 默认 false
 @property (nonatomic, assign) bool hideDJXLikeButton;
 //短剧激励视频奖励成功回调  不需要这个回调的可以不用配置此项
-@property (nonatomic, assign) id<ShortPlayRewardsSuccessDelegate> rewardSuccessDelegate;
+@property (nonatomic, assign) id<ShortPlayDelegate> playletDelegate;
 
 
 //短视频是否隐藏关注按钮 默认 false
 @property (nonatomic, assign) bool hideVideoFollow;
 //短视频倒计时奖励视图delegate  不设置代表不显示倒计时视图
-@property (nonatomic, assign) id<ShortVideoRewardsViewDelegate> rewardDelegate;
+@property (nonatomic, assign) id<ShortVideoDelegate> videoDelegate;
 //短视频倒计时奖励视图位置(倒计时控件宽高固定为60)
 @property (nonatomic, assign) CGPoint rewardOrigin;
 

@@ -55,7 +55,7 @@ typedef void (^playletCompletionHandler)(NSArray<DJXPlayletInfoModel *> * _Nulla
 - (void)requestPlayletHistoryListWithPage:(NSInteger)pageIndex pageSize:(NSInteger)pageSize completion:(playletCompletionHandler)completion;
 
 //根据短剧model进入短剧播放页
-- (UIViewController *)enterPlayerWithModel:(DJXPlayletInfoModel *)model;
+- (void)enterPlayerWithModel:(DJXPlayletInfoModel *)model;
 
 @end
 
