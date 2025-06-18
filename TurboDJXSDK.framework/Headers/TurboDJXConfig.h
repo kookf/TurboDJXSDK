@@ -75,6 +75,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) bool hideVideoFollow;
 //短视频倒计时奖励视图delegate  不设置代表不显示倒计时视图
 @property (nonatomic, assign) id<ShortVideoDelegate> videoDelegate;
+//如果非全屏展示，建议传一个要展示的size
+@property (nonatomic, assign) CGSize shortVideoBouns;
 //短视频倒计时奖励视图位置(倒计时控件宽高固定为60)
 @property (nonatomic, assign) CGPoint rewardOrigin;
 
