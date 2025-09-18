@@ -7,9 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import <PangrowthDJX/PangrowthDJX.h>
+#import <PangrowthMiniStory/PangrowthMiniStory.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+//短故事激励下发代理
 @protocol ShortStoryRewardsSuccessDelegate <NSObject>
 
 @optional
@@ -17,6 +19,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+//短故事阅读代理
+@protocol ShortStoryReaderDelegate<NSObject>
+/// 开始阅读
+- (void)startReading:(MNStorySessionContext *)sessionContext;
+
+/// 翻页
+- (void)turnPage:(MNStorySessionContext *)sessionContext from:(NSInteger)fromPage to:(NSInteger)toPage;
+
+/// 退出阅读
+- (void)stopReading:(MNStorySessionContext *)sessionContext;
+
+/// 整本书读完
+- (void)finishReading:(MNStorySessionContext *)sessionContext;
+@end
+
+//短剧代理
 @protocol ShortPlayDelegate <NSObject>
 
 @optional
@@ -27,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
+//短视频代理
 @protocol ShortVideoDelegate <NSObject>
 
 @optional
@@ -80,13 +98,14 @@ NS_ASSUME_NONNULL_BEGIN
 //短故事信息流广告插入在第几行下面 （0-5之间, 默认3）
 @property (nonatomic, assign) int NOV_START_LINE_NUMBER;
 //短剧激励视频奖励成功回调  不需要这个回调的可以不用配置此项
-@property (nonatomic, assign) id<ShortStoryRewardsSuccessDelegate> storyRewardSuccessDelegate;
+@property (nonatomic, weak) id<ShortStoryRewardsSuccessDelegate> storyRewardSuccessDelegate;
+@property (nonatomic, weak) id<ShortStoryReaderDelegate> storyReaderDelegate;
 
 
 //短视频是否隐藏关注按钮 默认 false
 @property (nonatomic, assign) bool hideVideoFollow;
 //短视频倒计时奖励视图delegate  不设置代表不显示倒计时视图
-@property (nonatomic, assign) id<ShortVideoDelegate> videoDelegate;
+@property (nonatomic, weak) id<ShortVideoDelegate> videoDelegate;
 //如果非全屏展示，建议传一个要展示的size
 @property (nonatomic, assign) CGSize shortVideoBouns;
 //短视频倒计时奖励视图位置(倒计时控件宽高固定为60)
