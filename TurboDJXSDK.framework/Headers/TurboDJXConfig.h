@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 - (void)playletRewardsSuccess;
+- (void)playletRewardsFailed:(NSString *_Nullable)error;
 - (void)playletStopWithModel:(DJXPlayletInfoModel *)model;
 - (void)playletPlayWithModel:(DJXPlayletInfoModel *)model;
 - (void)playletClose;
@@ -49,10 +50,13 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol ShortVideoDelegate <NSObject>
 
 @optional
-- (void)shortVideGetRewards;
-- (void)shortVideStopWithVideoId:(NSString *)videoId;
-- (void)shortVidePlayWithVideoId:(NSString *)videoId;
-- (void)shortVideClose;
+- (void)shortVideoGetRewards;
+- (void)shortVideoRewardsFailed:(NSString *_Nullable)error;
+- (void)shortVideoLoadSuccess;
+- (void)shortVideoLoadFailed:(NSString *)error;
+- (void)shortVideoStopWithVideoId:(NSString *)videoId;
+- (void)shortVideoPlayWithVideoId:(NSString *)videoId;
+- (void)shortVideoClose;
 
 @end
 
@@ -111,6 +115,8 @@ NS_ASSUME_NONNULL_BEGIN
 //短视频倒计时奖励视图位置(倒计时控件宽高固定为60)
 @property (nonatomic, assign) CGPoint rewardOrigin;
 
+//短剧剧场(短剧列表)是否显示返回按钮，默认不显示
+@property (nonatomic, assign) BOOL showPlayletTheaterBackButton;
 
 + (instancetype)sharedInstance;
 
