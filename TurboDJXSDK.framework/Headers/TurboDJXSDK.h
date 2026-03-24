@@ -30,6 +30,8 @@ typedef void (^playletCompletionHandler)(NSArray<DJXPlayletInfoModel *> * _Nulla
 
 //滑滑流短剧控制器
 - (UIViewController *)configPlayletVC;
+//滑滑流短剧控制器，指定view size
+- (UIViewController *)configPlayletVCWithViewSize:(CGSize)viewSize;
 
 //短故事控制器
 - (UIViewController *)configMiniStoryVC;

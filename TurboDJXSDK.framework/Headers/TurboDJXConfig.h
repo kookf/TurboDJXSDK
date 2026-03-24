@@ -117,6 +117,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 //短剧剧场(短剧列表)是否显示返回按钮，默认不显示
 @property (nonatomic, assign) BOOL showPlayletTheaterBackButton;
+//短剧滑滑流是否显示返回按钮，默认不显示
+@property (nonatomic, assign) BOOL showPlayletBackButton;
 
 + (instancetype)sharedInstance;
 
