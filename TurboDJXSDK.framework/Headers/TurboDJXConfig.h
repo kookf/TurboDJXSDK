@@ -7,32 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import <PangrowthDJX/PangrowthDJX.h>
-#import <PangrowthMiniStory/PangrowthMiniStory.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-//短故事激励下发代理
-@protocol ShortStoryRewardsSuccessDelegate <NSObject>
-
-@optional
-- (void)storyRewardsSuccess;
-
-@end
-
-//短故事阅读代理
-@protocol ShortStoryReaderDelegate<NSObject>
-/// 开始阅读
-- (void)startReading:(MNStorySessionContext *)sessionContext;
-
-/// 翻页
-- (void)turnPage:(MNStorySessionContext *)sessionContext from:(NSInteger)fromPage to:(NSInteger)toPage;
-
-/// 退出阅读
-- (void)stopReading:(MNStorySessionContext *)sessionContext;
-
-/// 整本书读完
-- (void)finishReading:(MNStorySessionContext *)sessionContext;
-@end
 
 //短剧代理
 @protocol ShortPlayDelegate <NSObject>
@@ -44,29 +20,40 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playletPlayWithModel:(DJXPlayletInfoModel *)model;
 - (void)playletClose;
 
+
 @end
 
 //短视频代理
 @protocol ShortVideoDelegate <NSObject>
 
 @optional
-- (void)shortVideoGetRewards;
-- (void)shortVideoRewardsFailed:(NSString *_Nullable)error;
-- (void)shortVideoLoadSuccess;
-- (void)shortVideoLoadFailed:(NSString *)error;
-- (void)shortVideoStopWithVideoId:(NSString *)videoId;
-- (void)shortVideoPlayWithVideoId:(NSString *)videoId;
-- (void)shortVideoClose;
-
+/**
+ * 视频开始播放
+ */
+- (void)shortVideoDidStartPlay;
+/**
+* 视频暂停播放
+*/
+- (void)shortVideoDidPause;
+/**
+* 视频恢复播放
+*/
+- (void)shortVideoDidResume;
+/**
+* 视频停止播放
+* @param finished     是否播放完成
+*/
+- (void)shortVideoDidEndPlayWithFinished:(BOOL)finished;
+/**
+* 视频播放失败
+* @param error        失败原因
+*/
+- (void)shortVideoDidFailedToPlayWithError:(NSError *)error;
 @end
 
 @interface TurboDJXConfig : NSObject
 
 
-//自定义短故事信息流广告位ID  必设置项
-@property (nonatomic, strong) NSString *storyNativePlacementID;
-//自定义短故事激励广告位ID    必设置项
-@property (nonatomic, strong) NSString *storyRewardPlacementID;
 //自定义短剧激励广告位ID     必设置项
 @property (nonatomic, strong) NSString *videoRewardPlacementID;
 
@@ -96,14 +83,6 @@ NS_ASSUME_NONNULL_BEGIN
 //短剧激励视频奖励成功回调  不需要这个回调的可以不用配置此项
 @property (nonatomic, assign) id<ShortPlayDelegate> playletDelegate;
 
-
-//短故事信息流广告每多少页出现一次（2-4之间, 默认3）
-@property (nonatomic, assign) int NOV_INSERT_INTERVAL;
-//短故事信息流广告插入在第几行下面 （0-5之间, 默认3）
-@property (nonatomic, assign) int NOV_START_LINE_NUMBER;
-//短剧激励视频奖励成功回调  不需要这个回调的可以不用配置此项
-@property (nonatomic, weak) id<ShortStoryRewardsSuccessDelegate> storyRewardSuccessDelegate;
-@property (nonatomic, weak) id<ShortStoryReaderDelegate> storyReaderDelegate;
 
 
 //短视频是否隐藏关注按钮 默认 false

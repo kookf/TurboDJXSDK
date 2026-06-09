@@ -10,6 +10,8 @@
 #import "TurboDJXConfig.h"
 #import <PangrowthDJX/PangrowthDJX.h>
 
+typedef void (^TurboDjxCompletionHandler)(BOOL success, NSError * _Nullable error);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TurboDJXSDK : NSObject
@@ -20,10 +22,16 @@ typedef void (^playletCompletionHandler)(NSArray<DJXPlayletInfoModel *> * _Nulla
 + (instancetype)sharedInstance;
 
 //获取版本号
-+ (void)getSDKVerson;
++ (NSString *)SDKVerson;
 
-//初始化
-- (void)initSDKWithAppID:(NSString *)appID WithConfigName:(NSString *)configName;
+//初始化短剧
+- (void)initPlayetSDKWithAppID:(NSString *)appId
+    configName:(NSString *)configName
+    completionHandler:(TurboDjxCompletionHandler _Nullable)completionHandler;
+
+//初始化短视频
+- (void)initShortVideoWithAppID:(NSString *)appId
+    completionHandler:(TurboDjxCompletionHandler _Nullable)completionHandler;
 
 //短剧列表控制器
 - (UIViewController *)configPlayletTheater;
@@ -33,17 +41,17 @@ typedef void (^playletCompletionHandler)(NSArray<DJXPlayletInfoModel *> * _Nulla
 //滑滑流短剧控制器，指定view size
 - (UIViewController *)configPlayletVCWithViewSize:(CGSize)viewSize;
 
-//短故事控制器
-- (UIViewController *)configMiniStoryVC;
-
 //短视频控制器
-- (UIViewController *)configVideoVC;
+-(UIViewController *)configShortVideoVCWithPosId:(NSString *)posId;
 
-//短视频----仅推荐
-- (UIViewController *)configRecommendVideoVC;
-
-//短视频---仅关注
-- (UIViewController *)configFollowVideoVC;
+////短视频控制器
+//- (UIViewController *)configVideoVC;
+//
+////短视频----仅推荐
+//- (UIViewController *)configRecommendVideoVC;
+//
+////短视频---仅关注
+//- (UIViewController *)configFollowVideoVC;
 
 /// 获取短剧的收藏列表
 /// - Parameters:
