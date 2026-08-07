@@ -22,7 +22,7 @@ typedef void (^playletCompletionHandler)(NSArray<DJXPlayletInfoModel *> * _Nulla
 + (instancetype)sharedInstance;
 
 //获取版本号
-+ (NSString *)SDKVerson;
++ (NSString *)SDKVersion;
 
 //初始化短剧
 - (void)initPlayetSDKWithAppID:(NSString *)appId
@@ -33,8 +33,10 @@ typedef void (^playletCompletionHandler)(NSArray<DJXPlayletInfoModel *> * _Nulla
 - (void)initShortVideoWithAppID:(NSString *)appId
     completionHandler:(TurboDjxCompletionHandler _Nullable)completionHandler;
 
-//短剧列表控制器
+//短剧列表控制器:样式1
 - (UIViewController *)configPlayletTheater;
+//短剧列表控制器:样式2
+- (UIViewController *)configPlayletTheater2;
 
 //滑滑流短剧控制器
 - (UIViewController *)configPlayletVC;

@@ -65,28 +65,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 //app是否有备案号 默认无
-@property (nonatomic, assign) bool icp;
+@property (nonatomic, assign) BOOL icp;
 //是否打开青少年模式 默认不打开
-@property (nonatomic, assign) bool teenMode;
+@property (nonatomic, assign) BOOL teenMode;
 //是否允许获取idfa 默认允许
-@property (nonatomic, assign) bool accessIDFA;
+@property (nonatomic, assign) BOOL accessIDFA;
 
 
-//短剧免费集数 默认10 最大20
+//短剧免费集数，规则如下
+//规则1：最大不超过20集
+//规则2：每部剧的前20%，四舍五入计算
+//规则1和规则2两者取最大。
 @property (nonatomic, assign) int DJX_FREE_SET;
 //短剧单次解锁集数 默认5 最大10
-@property (nonatomic, assign) int DJX_LOCK_SET;
+@property (nonatomic, assign) int DJX_UNLOCK_SET;
 //短剧是否隐藏收藏按钮 默认 false
-@property (nonatomic, assign) bool hideDJXFavorButton;
+@property (nonatomic, assign) BOOL hideDJXFavorButton;
 //短剧是否隐藏点赞按钮 默认 false
-@property (nonatomic, assign) bool hideDJXLikeButton;
+@property (nonatomic, assign) BOOL hideDJXLikeButton;
 //短剧激励视频奖励成功回调  不需要这个回调的可以不用配置此项
 @property (nonatomic, assign) id<ShortPlayDelegate> playletDelegate;
 
 
 
 //短视频是否隐藏关注按钮 默认 false
-@property (nonatomic, assign) bool hideVideoFollow;
+@property (nonatomic, assign) BOOL hideVideoFollow;
 //短视频倒计时奖励视图delegate  不设置代表不显示倒计时视图
 @property (nonatomic, weak) id<ShortVideoDelegate> videoDelegate;
 //如果非全屏展示，建议传一个要展示的size
